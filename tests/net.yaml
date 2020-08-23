@@ -16,7 +16,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
 metadata:
-  name: test-network-policy123
+  name: test-network-policy1234
   namespace: default
 spec:
   podSelector:

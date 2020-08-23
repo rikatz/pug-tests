@@ -3,7 +3,7 @@ name: Sample CI Workflow
 on: [push]
 env:
   KUBEPUG_VERSION: "v1.1.0"
-  K8S_TARGET_VERSION: "v1.16.0"
+  K8S_TARGET_VERSION: "v1.18.0"
 
 jobs:
  api-deprecations-test:
