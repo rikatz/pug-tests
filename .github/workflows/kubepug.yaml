@@ -1,0 +1,22 @@
+name: Sample CI Workflow
+# This workflow is triggered on pushes to the repository.
+on: [push]
+env:
+  KUBEPUG_VERSION: "v1.1.0"
+  K8S_TARGET_VERSION: "v1.16.0"
+
+jobs:
+ api-deprecations-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check-out repo
+        uses: actions/checkout@v2
+
+      - name: Install Helm and Kubepug binaries
+        run: |
+          mkdir -p ~/bin
+          curl -sSL https://github.com/rikatz/kubepug/releases/download/${KUBEPUG_VERSION}/kubepug_linux_amd64.tar.gz | tar xvfz - --overwrite -C ~/bin/
+      
+      - name: Run Kubepug with your Helm Charts Repository
+        run: |
+          ~/bin/kubepug --error-on-deprecated --error-on-deleted --k8s-version ${K8S_TARGET_VERSION} --input-file tests/ 
