@@ -53,7 +53,7 @@ new gridjs.Grid({
   fixedHeader: true,
   search: true,
   server: {
-    url: '/pug-tests/src/data.json',
+    url: '/src/data.json',
     then: data => data,
   }
 }).render(document.getElementById("wrapper"));
